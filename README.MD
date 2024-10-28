@@ -16,21 +16,20 @@ HTML, CHAKRA UI, REACT, SFCC STOREFRONT COMPOSABLE STOREFRONT
 
 custom component Name: my-new-route
 
-Product.jsx
-Product
-Accessories --> Accessories component
-ErrorBoundary --> common error boundaries
-Header --> Logo componnet
-Navigation --> all links
-Men --> men landing component
-ProductDec --> product description component
-ProductDetails --> product details like sizes availbility,
-ProductSeeMore --> SeeMore Image Gallary
-Search --> simple Search
-Women --> Women Landing
-Swatches --> swatches component
-
-    Routes --> all routes for links
+- Product.jsx
+- Product
+- Accessories --> Accessories component
+- ErrorBoundary --> common error boundaries
+- Header --> Logo componnet
+- Navigation --> all links
+- Men --> men landing component
+- ProductDec --> product description component
+- ProductDetails --> product details like sizes availbility,
+- ProductSeeMore --> SeeMore Image Gallary
+- Search --> simple Search
+- Women --> Women Landing
+- Swatches --> swatches component
+- Routes --> all routes for links
 
 ## Getting Started
 
