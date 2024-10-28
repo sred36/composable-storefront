@@ -1,51 +1,54 @@
 #PDP STEP1
 
-## Title
+# Title
+  Product detail page design
 
-Product detail page design
+# Description
+ Simple product details page which contains product main image and product title, product price, Availability of sizes and see more section
 
-## Description
+# Demo:
+  https://rawcdn.githack.com/sred36/PDP-TEST1/9ce97de52b62dac78061da7305472ccdf7b41075/index.html
+  
+# Technologies: 
 
-Simple product details page which contains product main image and product title, product price, Availability of sizes and see more section
+  HTML5, CSS3 ,JAVASCRIPT, JQUERY, FONT AWESOME.MEDIA QUERYS.BEM
 
-# Technologies:
+The branch has 3 folders:
 
-HTML, CHAKRA UI, REACT, SFCC STOREFRONT COMPOSABLE STOREFRONT
+# CSS:
+  Global.css  written styles globally and i have written predefined classes those classes can be used throught the project
 
-# Folder Structure
+  I have followed BEM structure for classes Name 
 
-custom component Name: my-new-route
+  Written dimension sizes in rem format
 
-- Product.jsx
-- Product
-- Accessories --> Accessories component
-- ErrorBoundary --> common error boundaries
-- Header --> Logo componnet
-- Navigation --> all links
-- Men --> men landing component
-- ProductDec --> product description component
-- ProductDetails --> product details like sizes availbility,
-- ProductSeeMore --> SeeMore Image Gallary
-- Search --> simple Search
-- Women --> Women Landing
-- Swatches --> swatches component
-- Routes --> all routes for links
+  Used media query's to support responsive design
 
-## Getting Started
+# Js
 
-### Requirements
+  Global.Js: i have wrriten functiona js programming
 
--   Node 18 or later
--   npm 9 or later
+  initializeCache() function initilise to get the all elements of dom. this helps us improve the performence rathere than traversing everytime
 
-### Run the Project Locally
+  initializeEvents : initilise is the event for swatches get the selected swatch information 
 
-- npm install
-- npm run build
-- npm start
+  var product : initilize jSON OBJECT different product's information
 
-This will open a browser and your storefront will be running on http://localhost:3000
+   appendDataToDom() method helps to update the dom elements like product image , product title, Product price, Product availability sizes, Product description
 
-### Navigate my custom component
 
-http://localhost:3000/my-new-route/
+# images:
+
+  Images folder contans the all project images like swatches colors, product image, see more images
+
+# index.html
+  
+  index.html: loadded css, js files and font awesome links
+
+#Local Demo: 
+    
+    1) Download Master branch
+    2) npm install
+    3) grunt sass
+    4) grunt js
+    5) extarct the zip folder and double click on index.html
