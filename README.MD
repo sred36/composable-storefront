@@ -41,9 +41,9 @@ Swatches --> swatches component
 
 ### Run the Project Locally
 
-npm install
-npm run build
-npm start
+- npm install
+- npm run build
+- npm start
 
 This will open a browser and your storefront will be running on http://localhost:3000
 
