@@ -7,7 +7,7 @@
  Simple product details page which contains product main image and product title, product price, Availability of sizes and see more section
 
 # Demo:
-  https://rawcdn.githack.com/sred36/PDP-TEST1/9ce97de52b62dac78061da7305472ccdf7b41075/index.html
+  https://sred36.github.io/composable-storefront/
   
 # Technologies: 
 
