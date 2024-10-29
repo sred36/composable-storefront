@@ -1,33 +1,4 @@
-const products = [
-  {
-    img: "./images/1.png",
-    title: "Twon headd",
-    price: "AED: 300",
-    sizes: "Available Sizes: S M",
-    desc: "Calendula Herbal Extract Alcohol-Free Toner",
-  },
-  {
-    img: "./images/6.png",
-    title: "Bangalore tshirt",
-    price: "AED: 400",
-    sizes: "Available Sizes: L XL",
-    desc: "-Moisten a sterile cotton pad with facial toner, and apply to skin in areas where needed, avoiding the eye area",
-  },
-  {
-    img: "./images/2.png",
-    title: "Candian tshirt",
-    price: "AED: 500",
-    sizes: "Available Sizes: S M XL XXL",
-    desc: "Contains no alcohol or harsh synthetic drying agent",
-  },
-  {
-    img: "./images/4.png",
-    title: "Leather Hoodie",
-    price: "AED: 600",
-    sizes: "Available Sizes: L XL",
-    desc: "The calendula petals in our unique formula are still inserted by hand in the Kiehl’s apothecary tradition",
-  },
-];
+let products = [];
 
 const cache = {};
 
@@ -77,7 +48,28 @@ const appendDataToDom = (product) => {
   cache.productDesc.text(product.desc);
 };
 
+const fetchProductData = async () => {
+  try {
+    const response = await fetch(
+      "https://raw.githubusercontent.com/sred36/composable-storefront/master/products.json"
+    );
+
+    // Check if the response is OK (status code 200-299)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    // Parse the JSON response
+    const data = await response.json(); // Declare products with const or let
+    products = data.products;
+  } catch (error) {
+    console.error("Error fetching product data:", error);
+  }
+};
+
 $(document).ready(() => {
+  // Usage example
+  fetchProductData();
   initializeCache();
   initializeEvents();
 });

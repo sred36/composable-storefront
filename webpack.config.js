@@ -31,32 +31,21 @@ module.exports = {
       },
     ],
   },
+  devtool: "source-map", // Generate source maps for better debugging
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html", // Template for the main page
       filename: "index.html", // Output filename for the main page
-      // chunks: ["index"], // Include only the main chunk in this HTML file
     }),
     new HtmlWebpackPlugin({
       template: "./src/Women.html", // Template for the second page
       filename: "Women.html", // Output filename for the second page
-      // chunks: ["Women"], // Include only the second chunk in this HTML file
     }),
     new CopyWebpackPlugin({
       patterns: [
         { from: "src/images", to: "images" }, // Adjust this path if needed
       ],
     }),
-
-    // new HtmlWebpackPlugin({
-    //   template: "./src/index.html",
-    //   filename: "index.html",
-    // }),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     { from: "src/images", to: "images" }, // Adjust this path if needed
-    //   ],
-    // }),
   ],
   devServer: {
     static: {
