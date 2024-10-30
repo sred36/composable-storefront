@@ -1,14 +1,8 @@
 import React from 'react'
 import {Box} from '@salesforce/retail-react-app/app/components/shared/ui'
-// import Header from './header'
-// import Navigation from './navigation'
-// import Search from './search'
 const Men = () => {
     return (
         <>
-            {/* <Header />
-            <Navigation />
-            <Search /> */}
             <Box className="text-align--center" p="10px">
                 Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply
                 random text. It has roots in a piece of classical Latin literature from 45 BC,
