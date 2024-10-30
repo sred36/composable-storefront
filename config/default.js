@@ -75,6 +75,10 @@ module.exports = {
             {
                 host: 'zzte-053.dx.commercecloud.salesforce.com',
                 path: 'ocapi'
+            },
+            {
+                host: 'raw.githubusercontent.com',
+                path: 'sred36'
             }
         ]
     }

@@ -17,7 +17,7 @@ import {
     GreenSmall,
     RedSmall,
     SkySmall
-} from '../layout/ProductIcons'
+} from './product-icons'
 
 const iconMap = {
     Zero: Zero,
@@ -34,13 +34,19 @@ const iconMap = {
     RedSmall: RedSmall,
     SkySmall: SkySmall
 }
+import {Skeleton} from '@salesforce/retail-react-app/app/components/shared/ui'
 
-const ProductImage = ({productImageProps}) => {
-    const {title, image} = productImageProps
+const Fallback = <Skeleton height="75vh" width="100%" />
+
+import {useGlobalState} from '../../../components/_app-config'
+
+const ProductImage = () => {
+    const {selectedProductState} = useGlobalState()
+    const {image} = selectedProductState
     const IconComponent = iconMap[image]
 
     if (!IconComponent) {
-        return <div>Icon not found</div>
+        return Fallback
     }
 
     return (

@@ -60,7 +60,8 @@ const {handler} = runtime.createHandler(options, (app) => {
                     ],
                     'connect-src': [
                         // Connect to Einstein APIs
-                        'api.cquotient.com'
+                        'api.cquotient.com',
+                        'raw.githubusercontent.com'
                     ]
                 }
             }

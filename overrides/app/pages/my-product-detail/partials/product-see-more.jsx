@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import {One, Two, Three, Four, Five} from '../layout/ProductIcons'
+import {One, Two, Three, Four, Five} from './product-icons'
 import {
     Flex,
     AspectRatio,
     Heading,
     Box
 } from '@salesforce/retail-react-app/app/components/shared/ui'
+import {useGlobalState} from '../../../components/_app-config'
 
 const iconMap = {
     One: One,
@@ -25,8 +26,10 @@ export const SeeMoreImage = ({source}) => {
     return <IconComponent />
 }
 
-const ProductSeeMore = ({seeMoreArray}) => {
-    const {seeMore} = seeMoreArray
+const ProductSeeMore = () => {
+    const {selectedProductState} = useGlobalState()
+    const {seeMore} = selectedProductState
+
     console.log('seeMore', seeMore)
     return (
         <Box className="product__seemore" mb="20px">

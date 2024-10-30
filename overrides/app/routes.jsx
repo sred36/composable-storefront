@@ -19,13 +19,15 @@ const fallback = <Skeleton height="75vh" width="100%" />
 // Create your pages here and add them to the routes array
 // Use loadable to split code into smaller js chunks
 const Home = loadable(() => import('./pages/home'), {fallback})
-const MyNewRoute = loadable(() => import('./pages/my-new-route'), {fallback})
-const Product = loadable(() => import('./pages/my-new-route/layout/Product'), {fallback})
-const Men = loadable(() => import('./pages/my-new-route/layout/Men'), {fallback})
-const Women = loadable(() => import('./pages/my-new-route/layout/Women'), {fallback})
-const Kids = loadable(() => import('./pages/my-new-route/layout/Kids'), {fallback})
-const Ftw = loadable(() => import('./pages/my-new-route/layout/Ftw'), {fallback})
-const Accessories = loadable(() => import('./pages/my-new-route/layout/Accessories'), {fallback})
+const MyNewRoute = loadable(() => import('./pages/my-product-detail'), {fallback})
+// const Product = loadable(() => import('./pages/my-product-detail/partials/product'), {fallback})
+// const Men = loadable(() => import('./pages//men'), {fallback})
+// const Women = loadable(() => import('./pages/women'), {fallback})
+// const Kids = loadable(() => import('./pages/kids'), {fallback})
+// const Ftw = loadable(() => import('./pages/ftw'), {fallback})
+// const Accessories = loadable(() => import('./pages/accessories'), {
+//     fallback
+// })
 
 const routes = [
     {
@@ -37,11 +39,11 @@ const routes = [
         path: '/my-new-route',
         component: MyNewRoute
     },
-    {path: '/MEN', component: Men},
-    {path: '/WOMEN', component: Women}, // Nested route for Women
-    {path: '/KIDS', component: Kids}, // Nested route for Kids
-    {path: '/FTW', component: Ftw}, // Nested route for Footwear
-    {path: '/ACCESSORIES', component: Accessories}, // Nest
+    // {path: '/men', component: Men},
+    // {path: '/women', component: Women}, // Nested route for Women
+    // {path: '/kids', component: Kids}, // Nested route for Kids
+    // {path: '/ftw', component: Ftw}, // Nested route for Footwear
+    // {path: '/accessories', component: Accessories}, // Nest
     ..._routes
 ]
 

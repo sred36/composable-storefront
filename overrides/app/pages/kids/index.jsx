@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Zero, One, Two, Three, Four, Five, Six} from '../layout/ProductIcons'
+import {Zero, One, Two, Three, Four, Five, Six} from '../my-product-detail/partials/product-icons'
 import {Text, AspectRatio} from '@salesforce/retail-react-app/app/components/shared/ui'
 
 const ProductTileData = [
@@ -35,5 +35,6 @@ const Kids = () => {
         </div>
     )
 }
+Kids.getTemplateName = () => 'kids'
 
 export default Kids

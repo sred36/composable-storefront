@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import {Flex, Text, Heading} from '@salesforce/retail-react-app/app/components/shared/ui'
-import {Blue, GreenSmall, RedSmall, SkySmall} from '../layout/ProductIcons'
+import {Blue, GreenSmall, RedSmall, SkySmall} from './product-icons'
 
 const swatchesData = [
     {component: Blue, id: 'blue'},
@@ -10,9 +10,20 @@ const swatchesData = [
     {component: SkySmall, id: 'sky-small'}
 ]
 
-const Swatches = (props) => {
-    let {selectedSwath} = props
-    let isSelected = selectedSwath.swatchColor
+import {useGlobalState} from '../../../components/_app-config'
+
+const Swatches = () => {
+    const {selectedProductState, setSelectedProductState, globalState} = useGlobalState()
+    // let {selectedSwath} = props
+    let isSelected = selectedProductState.swatchColor
+
+    const sendImageData = (id) => {
+        const selectedProduct = globalState.find((element) => element.swatchColor === id)
+        if (selectedProduct) {
+            setSelectedProductState(selectedProduct)
+        }
+    }
+
     return (
         <div className="product__colors">
             <Text fontSize="18" color="gray.700" lineHeight="1.5" mt="5px">
@@ -35,10 +46,7 @@ const Swatches = (props) => {
                         }}
                     >
                         <SwatchIcon
-                            onClick={() => props.onChildClick(id)} // Pass the id or value you want to handle
-                            // className={
-                            //     props.productImage.img === `images/${index}.png` ? 'selected' : ''
-                            // }
+                            onClick={() => sendImageData(id)} // Pass the id or value you want to handle
                         />
                     </div>
                 ))}

@@ -2,7 +2,7 @@ import React from 'react'
 import {Box, Flex, Link, List, ListItem} from '@chakra-ui/react'
 import {Link as RouterLink} from 'react-router-dom' // Use RouterLink for routing
 
-const NavigationList = ['MEN', 'WOMEN', 'KIDS', 'FTW', 'ACCESSORIES']
+const NavigationList = ['men', 'women', 'kids', 'ftw', 'accessories']
 
 const Navigation = () => {
     return (
@@ -11,7 +11,12 @@ const Navigation = () => {
                 {NavigationList.map((value, index) => (
                     <ListItem key={'navigation' + index}>
                         {/* Chakra's Link with react-router-dom's RouterLink */}
-                        <Link as={RouterLink} to={`/${value}`} fontWeight="bold">
+                        <Link
+                            as={RouterLink}
+                            to={`/my-new-route/${value}`}
+                            fontWeight="bold"
+                            textTransform="uppercase"
+                        >
                             {value}
                         </Link>
                     </ListItem>

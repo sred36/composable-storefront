@@ -16,20 +16,25 @@ HTML, CHAKRA UI, REACT, SFCC STOREFRONT COMPOSABLE STOREFRONT
 
 custom component Name: my-new-route
 
-- Product.jsx
-- Product
-- Accessories --> Accessories component
-- ErrorBoundary --> common error boundaries
-- Header --> Logo componnet
-- Navigation --> all links
-- Men --> men landing component
-- ProductDec --> product description component
-- ProductDetails --> product details like sizes availbility,
-- ProductSeeMore --> SeeMore Image Gallary
-- Search --> simple Search
-- Women --> Women Landing
-- Swatches --> swatches component
-- Routes --> all routes for links
+# Components
+
+    - header-one
+    - navigation
+    - search
+
+# Pages
+
+    - accessories
+    - ftw
+    - kids
+    - men
+    - my-product-detail
+        - product-description
+        - product-image
+        - product-see-more
+        - product
+        - swatches
+    - women
 
 ## Getting Started
 
@@ -40,9 +45,9 @@ custom component Name: my-new-route
 
 ### Run the Project Locally
 
-- npm install
-- npm run build
-- npm start
+-   npm install
+-   npm run build
+-   npm start
 
 This will open a browser and your storefront will be running on http://localhost:3000
 

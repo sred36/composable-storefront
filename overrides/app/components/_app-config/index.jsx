@@ -28,6 +28,11 @@ import {useCorrelationId} from '@salesforce/pwa-kit-react-sdk/ssr/universal/hook
 import {getAppOrigin} from '@salesforce/pwa-kit-react-sdk/utils/url'
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 
+import {createContext, useContext, useState, useEffect} from 'react'
+
+export const GlobalContext = createContext(null)
+export const useGlobalState = () => useContext(GlobalContext)
+
 /**
  * Use the AppConfig component to inject extra arguments into the getProps
  * methods for all Route Components in the app – typically you'd want to do this
@@ -37,6 +42,9 @@ import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
  * as Redux, or Mobx, if you like.
  */
 const AppConfig = ({children, locals = {}}) => {
+    const [globalState, setGlobalState] = useState([])
+    const [selectedProductState, setSelectedProductState] = useState({})
+
     const {correlationId} = useCorrelationId()
     const headers = {
         'correlation-id': correlationId
@@ -45,6 +53,28 @@ const AppConfig = ({children, locals = {}}) => {
     const commerceApiConfig = locals.appConfig.commerceAPI
 
     const appOrigin = getAppOrigin()
+
+    useEffect(() => {
+        // Fetch local JSON data
+        const fetchProducts = async () => {
+            try {
+                const response = await fetch(
+                    'https://raw.githubusercontent.com/sred36/Shopping-Cart/main/products.json'
+                ) // Adjust this path if necessary
+                if (!response.ok) {
+                    throw new Error('Network response was not ok')
+                }
+                const result = await response.json()
+                setGlobalState(result.products)
+                setSelectedProductState(result.products[2])
+                console.log('context', result.products[2])
+            } catch (error) {
+                console.error('Error fetching products:', error)
+            }
+        }
+
+        fetchProducts()
+    }, [])
 
     return (
         <CommerceApiProvider
@@ -61,7 +91,18 @@ const AppConfig = ({children, locals = {}}) => {
             logger={createLogger({packageName: 'commerce-sdk-react'})}
         >
             <MultiSiteProvider site={locals.site} locale={locals.locale} buildUrl={locals.buildUrl}>
-                <ChakraProvider theme={theme}>{children}</ChakraProvider>
+                <ChakraProvider theme={theme}>
+                    <GlobalContext.Provider
+                        value={{
+                            globalState,
+                            setGlobalState,
+                            selectedProductState,
+                            setSelectedProductState
+                        }}
+                    >
+                        {children}
+                    </GlobalContext.Provider>
+                </ChakraProvider>
             </MultiSiteProvider>
             <ReactQueryDevtools />
         </CommerceApiProvider>

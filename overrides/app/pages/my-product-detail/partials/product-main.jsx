@@ -1,17 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import Swatches from './Swatches'
-import ProductDes from './ProductDes'
-import ProductSeeMore from './ProductSeeMore'
+import Swatches from './swatches'
+import ProductDes from './product-description'
+import ProductSeeMore from './product-see-more'
 import {Box, Heading, Text} from '@salesforce/retail-react-app/app/components/shared/ui'
+import {useGlobalState} from '../../../components/_app-config'
 
-const ProductDetails = ({productImageProps, seletedItem, sendImageData}) => {
+const ProductDetails = () => {
     // eslint-disable-next-line react/prop-types
-    let {title, price, description, availableSizes} = productImageProps
+    const {selectedProductState} = useGlobalState()
+    let {title, price, availableSizes} = selectedProductState
 
-    function sendImageDataMethod(id) {
-        sendImageData(id)
-    }
     return (
         <Box className="product__details px-2" px="10px">
             <Heading as="h2" size="lg">
@@ -25,15 +24,11 @@ const ProductDetails = ({productImageProps, seletedItem, sendImageData}) => {
                 <Heading as="h5" size="18">
                     Available Sizes :
                 </Heading>
-                {availableSizes.join(' , ')}
+                {availableSizes && availableSizes.join(' , ')}
             </Text>
-            <Swatches
-                availableSizes={availableSizes}
-                selectedSwath={seletedItem}
-                onChildClick={sendImageDataMethod}
-            />
-            <ProductDes des={description} />
-            <ProductSeeMore seeMoreArray={productImageProps} />
+            <Swatches />
+            <ProductDes />
+            <ProductSeeMore />
         </Box>
     )
 }

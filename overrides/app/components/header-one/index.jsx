@@ -2,7 +2,7 @@ import React from 'react'
 
 import {Flex, Link} from '@salesforce/retail-react-app/app/components/shared/ui'
 
-const Header = () => {
+const HeaderOne = () => {
     return (
         <>
             <Flex justify="center" align="center" height="100px">
@@ -19,4 +19,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default HeaderOne
